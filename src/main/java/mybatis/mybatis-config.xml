@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <settings>
+        <setting name="logImpl" value="LOG4J"/>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
+    <typeAliases>
+        <package name="mybatis.model"/>
+    </typeAliases>
+
+    <typeHandlers>
+        <typeHandler handler="mybatis.typeHandler.UpperCaseTypeHandler"/>
+        <typeHandler handler="mybatis.typeHandler.DateCaseTypeHandler"/>
+    </typeHandlers>
+
+    <!--<plugins>-->
+    <!--&lt;!&ndash;<plugin interceptor="mybatis.interceptor.Executor.MyExecutorInterceptor">-->
+    <!--<property name="offset" value="1"/>-->
+    <!--</plugin>-->
+    <!--<plugin interceptor="mybatis.interceptor.Executor.HisExecutorInterceptor">-->
+    <!--<property name="offset" value="-1"/>-->
+    <!--</plugin>&ndash;&gt;-->
+    <!--&lt;!&ndash;<plugin interceptor="mybatis.interceptor.StatementHandler.MyStatementInterceptor"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;<plugin interceptor="mybatis.interceptor.ParameterHandler.ParameterInterceptor"/>&ndash;&gt;-->
+    <!--</plugins>-->
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url"
+                          value="jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&amp;characterEncoding=utf-8&amp;allowMultiQueries=true&amp;serverTimezone=GMT%2B8"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="mybatis/mapper/BlogMapper.xml"/>
+    </mappers>
+</configuration>

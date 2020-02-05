@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.mapper.BlogMapper">
+    <cache/>
+    <!-- 必须正确指定jdbcType转换器才能正确生效 -->
+    <!-- 必须指定jdbcType才能绑定到指定typeHandler -->
+    <resultMap type="blog" id="blogMap">
+        <id column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="author_id" property="authorId"/>
+        <result column="post_time" property="postTime" jdbcType="VARCHAR"/>
+        <result column="last_update_time" property="lastUpdateTime"/>
+    </resultMap>
+
+    <resultMap type="blog" id="_blogMap">
+        <id column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="author_id" property="authorId"/>
+        <result column="post_time" property="postTime" jdbcType="VARCHAR"/>
+        <result column="last_update_time" property="lastUpdateTime"/>
+    </resultMap>
+
+    <select id="selectBlog" resultType="blog">
+        select *
+        from Blog
+        where id = #{id}
+    </select>
+
+    <!-- 必须指定jdbcType才能绑定到指定typeHandler -->
+    <select id="selectBlogByTitle" resultMap="blogMap">
+        select id, title, author_id, last_update_time
+        from Blog
+        where title = #{title,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectBlogByTitle2" resultType="blog">
+        select id, title, author_id, last_update_time
+        from Blog
+        where title = #{title,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectBlogByPostTime">
+        select *
+        from Blog
+        where post_time = #{time,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectBlogByUpdateTime" resultMap="blogMap">
+        select *
+        from Blog
+        where last_update_time = #{time,jdbcType=VARCHAR}
+          and title = #{title}
+    </select>
+
+    <insert id="insertBlog" parameterType="blog">
+        insert into blog11 (id, title, author_id)
+        values (#{id}, #{title}, #{authorId})
+    </insert>
+
+</mapper>

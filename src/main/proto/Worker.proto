@@ -1,0 +1,25 @@
+syntax = "proto3";
+option optimize_for = SPEED;
+option java_outer_classname = "Data";
+
+message ProtocolMessage {
+    enum Type {
+        BEAT = 0;
+        MESSAGE = 1;
+    }
+    Type type = 1;
+
+    oneof body {
+        Beat beat = 2;
+        Message message = 3;
+    }
+}
+
+message Message {
+    int32 id = 1;
+    string text = 2;
+}
+
+message Beat {
+    int32 state = 1;
+}

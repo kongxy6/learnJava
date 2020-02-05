@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans   
+            http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    <bean id="man" class="spring.bean.Man"/>
+
+    <bean id="person" class="spring.bean.Person" init-method="myInit"
+          destroy-method="myDestroy" scope="singleton" depends-on="man">
+
+        <property name="address" value="shanghai"/>
+        <property name="phone" value="12312312"/>
+    </bean>
+
+    <bean id="beanPostProcessor"
+          class="spring.processor.MyBeanPostProcessor"></bean>
+
+    <bean id="instantiationAwareBeanPostProcessor"
+          class="spring.processor.MyInstantiationAwareBeanPostProcessor"></bean>
+
+    <bean id="modifyBeanFactoryPostProcessor"
+          class="spring.processor.ModifyBeanFactoryPostProcessor">
+    </bean>
+
+    <bean id="registryBeanFactoryPostProcessor"
+          class="spring.processor.RegistryBeanFactoryPostProcessor">
+    </bean>
+
+
+</beans>

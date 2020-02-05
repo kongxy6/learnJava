@@ -1,0 +1,6 @@
+HTTP/1.0 200 OK
+Server: KXY Server
+Content-Length: 30
+Content-Type: unknown/unknown
+
+hello world!你好，世界！
