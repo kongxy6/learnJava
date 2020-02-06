@@ -9,11 +9,9 @@ import java.util.concurrent.BlockingQueue;
 public class Consumer extends Thread {
 
     private BlockingQueue<SqlObject> sqlObjectBlockingQueue;
-    private Object logLock;
 
-    Consumer(BlockingQueue<SqlObject> sqlObjectBlockingQueue, Object logLock) {
+    Consumer(BlockingQueue<SqlObject> sqlObjectBlockingQueue) {
         this.sqlObjectBlockingQueue = sqlObjectBlockingQueue;
-        this.logLock = logLock;
     }
 
     @Override
@@ -26,20 +24,19 @@ public class Consumer extends Thread {
 
             // 模拟消费过程
             try {
-                Thread.currentThread().sleep(30);
+                Thread.sleep(30);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
 
-            // 粒度有点大了
-            synchronized (logLock) {
-                for (SqlObject sqlObject : sqlObjectList) {
-                    System.out.println("线程---" + Thread.currentThread().toString() + "执行了一次消费任务，对象id为---" + sqlObject.getId());
-                    if (sqlObject.getId() == 100) {
-                        cancel();
-                    }
+
+            for (SqlObject sqlObject : sqlObjectList) {
+                System.out.println("线程---" + Thread.currentThread().toString() + "执行了一次消费任务，对象id为---" + sqlObject.getId());
+                if (sqlObject.getId() == 100) {
+                    cancel();
                 }
             }
+
         }
         System.out.println("===== 消费者线程结束 =====");
     }

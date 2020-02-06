@@ -15,10 +15,6 @@ public class Odd extends Thread {
     @Override
     public void run() {
         for (; atom.atomicInteger.get() < 100; ) {
-//            if (atom.flag) {
-//                log.info(atom.atomicInteger.incrementAndGet());
-//                atom.flag = false;
-//            }
             synchronized (atom) {
                 while (!atom.flag) {
                     try {

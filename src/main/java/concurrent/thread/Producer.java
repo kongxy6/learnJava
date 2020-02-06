@@ -9,11 +9,9 @@ public class Producer extends Thread {
 
     private static AtomicInteger num = new AtomicInteger();
     private BlockingQueue<SqlObject> sqlObjectBlockingQueue;
-    private Object logLock;
 
-    Producer(BlockingQueue<SqlObject> sqlObjectBlockingQueue, Object logLock) {
+    Producer(BlockingQueue<SqlObject> sqlObjectBlockingQueue) {
         this.sqlObjectBlockingQueue = sqlObjectBlockingQueue;
-        this.logLock = logLock;
     }
 
     @Override
@@ -27,11 +25,10 @@ public class Producer extends Thread {
                     cancel();
                 }
                 // 该方法会响应中断
-                Thread.currentThread().sleep(5);
+                Thread.sleep(5);
                 sqlObjectBlockingQueue.put(sqlObject);
-                synchronized (logLock) {
-                    System.out.println("线程---" + Thread.currentThread().toString() + "执行了一次生产任务，对象id为---" + sqlObject.getId());
-                }
+                System.out.println("线程---" + Thread.currentThread().toString() + "执行了一次生产任务，对象id为---" + sqlObject.getId());
+
             }
         } catch (InterruptedException e) {
             System.out.println("===== 生产者线程结束 =====");

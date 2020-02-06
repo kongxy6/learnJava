@@ -937,6 +937,21 @@ public final class Data {
             /**
              * <code>optional .Beat beat = 2;</code>
              */
+            public Builder setBeat(
+                    Data.Beat.Builder builderForValue) {
+                if (beatBuilder_ == null) {
+                    body_ = builderForValue.build();
+                    onChanged();
+                } else {
+                    beatBuilder_.setMessage(builderForValue.build());
+                }
+                bodyCase_ = 2;
+                return this;
+            }
+
+            /**
+             * <code>optional .Beat beat = 2;</code>
+             */
             public Builder setBeat(Data.Beat value) {
                 if (beatBuilder_ == null) {
                     if (value == null) {
@@ -946,21 +961,6 @@ public final class Data {
                     onChanged();
                 } else {
                     beatBuilder_.setMessage(value);
-                }
-                bodyCase_ = 2;
-                return this;
-            }
-
-            /**
-             * <code>optional .Beat beat = 2;</code>
-             */
-            public Builder setBeat(
-                    Data.Beat.Builder builderForValue) {
-                if (beatBuilder_ == null) {
-                    body_ = builderForValue.build();
-                    onChanged();
-                } else {
-                    beatBuilder_.setMessage(builderForValue.build());
                 }
                 bodyCase_ = 2;
                 return this;
@@ -1073,6 +1073,21 @@ public final class Data {
             /**
              * <code>optional .Message message = 3;</code>
              */
+            public Builder setMessage(
+                    Data.Message.Builder builderForValue) {
+                if (messageBuilder_ == null) {
+                    body_ = builderForValue.build();
+                    onChanged();
+                } else {
+                    messageBuilder_.setMessage(builderForValue.build());
+                }
+                bodyCase_ = 3;
+                return this;
+            }
+
+            /**
+             * <code>optional .Message message = 3;</code>
+             */
             public Builder setMessage(Data.Message value) {
                 if (messageBuilder_ == null) {
                     if (value == null) {
@@ -1082,21 +1097,6 @@ public final class Data {
                     onChanged();
                 } else {
                     messageBuilder_.setMessage(value);
-                }
-                bodyCase_ = 3;
-                return this;
-            }
-
-            /**
-             * <code>optional .Message message = 3;</code>
-             */
-            public Builder setMessage(
-                    Data.Message.Builder builderForValue) {
-                if (messageBuilder_ == null) {
-                    body_ = builderForValue.build();
-                    onChanged();
-                } else {
-                    messageBuilder_.setMessage(builderForValue.build());
                 }
                 bodyCase_ = 3;
                 return this;
