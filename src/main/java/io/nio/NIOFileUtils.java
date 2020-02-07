@@ -102,8 +102,7 @@ public class NIOFileUtils {
 
     }
 
-    // 使用直接内存，不具备备份数组
-    // TODO 测试一下使用直接内存和普通缓冲区的速度差异
+    // 使用直接内存，不具备备份数组，省去从数组拷贝到native的步骤
     @Test
     void fastCopyFile() throws IOException {
         String infile = "tiktok.mp4";
@@ -293,6 +292,5 @@ public class NIOFileUtils {
         System.out.println(dupeBuffer.position() + " " + dupeBuffer.limit() + " " + dupeBuffer.put('c'));
         System.out.println(dupeBuffer.position() + " " + dupeBuffer.limit());
     }
-
 
 }
