@@ -45,5 +45,13 @@ public class Test {
         String s4 = s2.intern();
         System.out.println(s3 == s4);
         System.out.println(s1 == s2);
+
+        String s7 = "b";
+
+        // 只针对字面量做优化，此处使用变量，并不会优化
+        String s5 = new String(s7 + "(๑′ᴗ‵๑)Ｉ Lᵒᵛᵉᵧₒᵤ❤");
+        String s6 = new String("b(๑′ᴗ‵๑)Ｉ Lᵒᵛᵉᵧₒᵤ❤");
+
+        System.out.println(s5 == s6);
     }
 }

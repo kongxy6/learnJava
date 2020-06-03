@@ -4,6 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
@@ -49,7 +51,7 @@ public class Client {
      *
      * @param args
      */
-    public static void main(String[] args) {
+    public static void main1(String[] args) {
         final AtomicInteger atomicInteger = new AtomicInteger(0);
         CountDownLatch count = new CountDownLatch(1);
         for (int i = 0; i < 1; i++) {
@@ -69,18 +71,16 @@ public class Client {
         count.countDown();
     }
 
-    void main1(String[] args) throws IOException {
-        Socket socket = new Socket("127.0.0.1", 9999);
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+    @Test
+    public static void main(String[] args) throws IOException {
+        DatagramSocket socket = new DatagramSocket();
+        InetSocketAddress address = new InetSocketAddress("127.0.0.1", 9999);
         // 此处会将\n读入，导致不可预测的换行行为
-        InputStreamReader reader = new InputStreamReader(System.in);
+        InputStream reader = System.in;
         while (true) {
-            char[] chars = new char[5];
-            // 此处会读满五个字符，即使字符是空的
-            int len = reader.read(chars);
-            String str = new String(chars, 0, len);
-            writer.write(str);
-            writer.flush();
+            byte[] data = new byte[1024];
+            int len = reader.read(data);
+            socket.send(new DatagramPacket(data, len, address));
         }
     }
 

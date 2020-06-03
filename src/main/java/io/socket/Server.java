@@ -4,8 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
-import java.net.ServerSocket;
-import java.net.Socket;
+import java.net.*;
 import java.nio.charset.StandardCharsets;
 
 @Slf4j
@@ -30,9 +29,6 @@ public class Server {
                 String str = null;
                 while (true) {
                     try {
-                        if (in == null) {
-                            break;
-                        }
                         str = in.readLine();
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -67,7 +63,6 @@ public class Server {
             log.debug("type:   " + type + "    len:   " + len + "  data:    " + data);
             break;
         }
-        // 在接收到EOF之后，就无法使用输入流了  byte type = stream.readByte();
         DataOutputStream stream1 = new DataOutputStream(socket.getOutputStream());
         // 如果使用writeUTF会在开头加入长度
         stream1.write("Server 接收到了数据\r\n".getBytes());
@@ -116,5 +111,17 @@ public class Server {
         stream.read(content);
         log.debug("recv: {}", new String(content));
         socket.close();
+    }
+
+    @Test
+    void server_udp() throws SocketException, IOException {
+        InetSocketAddress address = new InetSocketAddress("127.0.0.1", 9999);
+        DatagramSocket socket = new DatagramSocket(address);
+        while (true) {
+            byte[] data = new byte[1024];
+            DatagramPacket packet = new DatagramPacket(data, 0, 1024);
+            socket.receive(packet);
+            System.out.print(new String(data, 0, packet.getLength()));
+        }
     }
 }
