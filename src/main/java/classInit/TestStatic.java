@@ -22,7 +22,7 @@ public class TestStatic {
         System.out.println("a=" + a + " b=" + b);
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         staticFunction();
     }
 

@@ -114,7 +114,7 @@ public class Server {
     }
 
     @Test
-    void server_udp() throws SocketException, IOException {
+    void server_udp() throws IOException {
         InetSocketAddress address = new InetSocketAddress("127.0.0.1", 9999);
         DatagramSocket socket = new DatagramSocket(address);
         while (true) {

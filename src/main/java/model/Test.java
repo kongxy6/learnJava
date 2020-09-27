@@ -38,7 +38,7 @@ public class Test {
     @org.junit.jupiter.api.Test
     void test2() {
         String s1 = new StringBuilder("a").append("aa").toString();
-        String s2 = new String("aaa");
+        String s2 = "aaa";
         System.out.println(s1 == s2);           // false
         String s3 = s1.intern();
         System.out.println(s3 == s1);
@@ -49,8 +49,8 @@ public class Test {
         String s7 = "b";
 
         // 只针对字面量做优化，此处使用变量，并不会优化
-        String s5 = new String(s7 + "(๑′ᴗ‵๑)Ｉ Lᵒᵛᵉᵧₒᵤ❤");
-        String s6 = new String("b(๑′ᴗ‵๑)Ｉ Lᵒᵛᵉᵧₒᵤ❤");
+        String s5 = s7 + "(๑′ᴗ‵๑)Ｉ Lᵒᵛᵉᵧₒᵤ❤";
+        String s6 = "b(๑′ᴗ‵๑)Ｉ Lᵒᵛᵉᵧₒᵤ❤";
 
         System.out.println(s5 == s6);
     }

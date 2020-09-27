@@ -4,7 +4,7 @@ import org.apache.log4j.Logger;
 
 public class Even extends Thread {
 
-    private static Logger log = Logger.getLogger(Even.class);
+    private static final Logger log = Logger.getLogger(Even.class);
 
     private final Main.Atom atom;
 

@@ -16,7 +16,7 @@ import java.util.Date;
 @MappedTypes(Date.class)
 public class DateCaseTypeHandler extends BaseTypeHandler<Date> {
 
-    private String pattern = "yyyy-MM-dd HH:mm:ss";
+    private final String pattern = "yyyy-MM-dd HH:mm:ss";
 
     @Override
     public void setNonNullParameter(PreparedStatement preparedStatement, int i, Date date, JdbcType jdbcType) throws SQLException {

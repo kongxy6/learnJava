@@ -7,7 +7,7 @@ import java.util.concurrent.*;
 public class PreLoader {
 
     // 定义一个任务
-    private Callable<String> task = () -> {
+    private final Callable<String> task = () -> {
         Thread.sleep(1000);
         return "success";
     };

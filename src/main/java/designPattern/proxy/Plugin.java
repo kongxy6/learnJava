@@ -10,9 +10,9 @@ import java.util.*;
 
 public class Plugin implements InvocationHandler {
 
-    private Interceptor interceptor;
-    private Object target;
-    private Map<Class<?>, Set<Method>> signatureMap;
+    private final Interceptor interceptor;
+    private final Object target;
+    private final Map<Class<?>, Set<Method>> signatureMap;
 
     public Plugin(Interceptor interceptor, Object target, Map<Class<?>, Set<Method>> signatureMap) {
         this.interceptor = interceptor;

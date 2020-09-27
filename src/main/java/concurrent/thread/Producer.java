@@ -7,8 +7,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Producer extends Thread {
 
-    private static AtomicInteger num = new AtomicInteger();
-    private BlockingQueue<SqlObject> sqlObjectBlockingQueue;
+    private static final AtomicInteger num = new AtomicInteger();
+    private final BlockingQueue<SqlObject> sqlObjectBlockingQueue;
 
     Producer(BlockingQueue<SqlObject> sqlObjectBlockingQueue) {
         this.sqlObjectBlockingQueue = sqlObjectBlockingQueue;

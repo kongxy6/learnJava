@@ -8,7 +8,7 @@ public class ImmutableObject {
     public StringBuilder builder;
     public StringBuffer buffer;
     String desc;
-    private int id;
+    private final int id;
 
     public ImmutableObject(int id) {
         this.id = id;

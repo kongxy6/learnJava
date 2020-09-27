@@ -5,8 +5,8 @@ class Son extends Father implements Family {
         System.out.println("3.  子类静态代码块初始化");
     }
 
-    private int i;
-    private String s = "子类私有成员变量";
+    private final int i;
+    private final String s = "子类私有成员变量";
 
     {
         System.out.println("7.  子类代码块初始化");

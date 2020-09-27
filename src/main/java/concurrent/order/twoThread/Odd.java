@@ -4,7 +4,7 @@ import org.apache.log4j.Logger;
 
 public class Odd extends Thread {
 
-    private static Logger log = Logger.getLogger(Odd.class);
+    private static final Logger log = Logger.getLogger(Odd.class);
 
     private final Main.Atom atom;
 

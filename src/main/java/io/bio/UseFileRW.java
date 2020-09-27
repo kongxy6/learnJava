@@ -4,12 +4,13 @@ import org.junit.jupiter.api.Test;
 
 import java.io.*;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 public class UseFileRW {
 
     Charset charsetGBK = Charset.forName("GBK");
 
-    Charset charsetUTF = Charset.forName("UTF-8");
+    Charset charsetUTF = StandardCharsets.UTF_8;
 
     public String readFile(String fileName) {
         File file = new File(fileName);

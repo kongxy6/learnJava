@@ -8,7 +8,7 @@ public class NoMethodObject {
 
     private String desc;
 
-    private SqlObject sqlObject = null;
+    private final SqlObject sqlObject = null;
 
     @Override
     public String toString() {

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LetterCasePermutation_DFS {
-    private List<String> res = new ArrayList<>();
+    private final List<String> res = new ArrayList<>();
 
     private int len = 0;
 

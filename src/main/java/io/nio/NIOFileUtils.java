@@ -11,10 +11,7 @@ import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
-import java.nio.charset.CharacterCodingException;
-import java.nio.charset.Charset;
-import java.nio.charset.CharsetDecoder;
-import java.nio.charset.CharsetEncoder;
+import java.nio.charset.*;
 
 public class NIOFileUtils {
 
@@ -125,7 +122,7 @@ public class NIOFileUtils {
         ssc.socket().bind(address);
         int messageLength =
                 firstHeaderLength + secondHeaderLength + bodyLength;
-        ByteBuffer buffers[] = new ByteBuffer[3];
+        ByteBuffer[] buffers = new ByteBuffer[3];
         buffers[0] = ByteBuffer.allocate(firstHeaderLength);
         buffers[1] = ByteBuffer.allocate(secondHeaderLength);
         buffers[2] = ByteBuffer.allocate(bodyLength);
@@ -134,7 +131,7 @@ public class NIOFileUtils {
         ByteBuffer buffer = ByteBuffer.allocate(1024 * 1024);
         sc.read(buffer);
         buffer.flip();
-        Charset latin1 = Charset.forName("UTF-8");
+        Charset latin1 = StandardCharsets.UTF_8;
         CharsetDecoder decoder = latin1.newDecoder();
         CharBuffer charBuffer = decoder.decode(buffer);
         String content = charBuffer.toString();
@@ -201,7 +198,7 @@ public class NIOFileUtils {
         MappedByteBuffer inputData =
                 inc.map(FileChannel.MapMode.READ_ONLY, 0, inputLength);
 
-        Charset latin1 = Charset.forName("UTF-8");
+        Charset latin1 = StandardCharsets.UTF_8;
         CharsetDecoder decoder = latin1.newDecoder();
         CharsetEncoder encoder = latin1.newEncoder();
 

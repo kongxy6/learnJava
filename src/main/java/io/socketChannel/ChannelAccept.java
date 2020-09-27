@@ -12,12 +12,13 @@ import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
+import java.nio.charset.StandardCharsets;
 
 @Slf4j
 public class ChannelAccept {
     public static final String GREETING = "Hello I must be going.\r\n";
 
-    Charset latin1 = Charset.forName("UTF-8");
+    Charset latin1 = StandardCharsets.UTF_8;
     CharsetDecoder decoder = latin1.newDecoder();
 
     @Test

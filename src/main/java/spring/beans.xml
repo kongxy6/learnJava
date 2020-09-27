@@ -1,24 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="
             http://www.springframework.org/schema/beans   
             http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
 
     <bean id="man" class="spring.bean.Man"/>
 
+    <!-- 混用俩种DI方式 -->
+    <!-- 类似于p命名空间，还有c命名空间，专门搞构造函数的参数注入-->
     <bean id="person" class="spring.bean.Person" init-method="myInit"
-          destroy-method="myDestroy" scope="singleton" depends-on="man">
-
+          destroy-method="myDestroy" scope="singleton" depends-on="man" p:man-ref="man">
+        <constructor-arg index="0" value="22"/>
+        <!--<property name="man" ref="man"/>-->
         <property name="address" value="shanghai"/>
         <property name="phone" value="12312312"/>
     </bean>
 
+    <!-- 还有一种使用静态工厂方法创建bean，也可以设置创建出来的bean的属性-->
+
+    <!-- 还有一种使用实例工厂方法创建bean，也可以设置创建出来的bean的属性-->
+
+    <!-- 这也就是factory bean，注意不要和FactoryBean混淆 -->
+
+    <alias name="person" alias="person2"/>
+
     <bean id="beanPostProcessor"
-          class="spring.processor.MyBeanPostProcessor"></bean>
+          class="spring.processor.MyBeanPostProcessor"/>
 
     <bean id="instantiationAwareBeanPostProcessor"
-          class="spring.processor.MyInstantiationAwareBeanPostProcessor"></bean>
+          class="spring.processor.MyInstantiationAwareBeanPostProcessor"/>
 
     <bean id="modifyBeanFactoryPostProcessor"
           class="spring.processor.ModifyBeanFactoryPostProcessor">

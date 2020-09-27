@@ -13,6 +13,7 @@ public class ModifyBeanFactoryPostProcessor implements BeanFactoryPostProcessor 
     }
 
     // 该接口只具备修改能力，而不具备注册能力
+    @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory arg) throws BeansException {
         System.out.println("BeanFactoryPostProcessor调用postProcessBeanFactory方法 -> 直接修改bean定义");
         BeanDefinition bd = arg.getBeanDefinition("person");

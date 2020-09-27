@@ -15,6 +15,7 @@ public class MyBeanPostProcessor implements BeanPostProcessor {
         System.out.println("BeanPostProcessor实现类构造器！！");
     }
 
+    @Override
     public Object postProcessAfterInitialization(Object arg, String beanName) throws BeansException {
         if (beanName.equals("person")) {
             if (arg instanceof Person) {
@@ -27,6 +28,7 @@ public class MyBeanPostProcessor implements BeanPostProcessor {
         return arg;
     }
 
+    @Override
     public Object postProcessBeforeInitialization(Object arg, String beanName) throws BeansException {
         System.out.println("BeanPostProcessor调用postProcessBeforeInitialization对对象的属性进行更改！");
         return arg;

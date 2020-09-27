@@ -4,7 +4,7 @@ import designPattern.decoration.Test;
 
 public class Espresso implements Cafe, Test {
 
-    private String description;
+    private final String description;
 
     public Espresso() {
         description = "this is a DeCaf ";

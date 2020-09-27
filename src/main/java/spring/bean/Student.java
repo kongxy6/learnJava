@@ -4,6 +4,10 @@ public class Student extends Person {
 
     private int age;
 
+    public Student(int i) {
+        super(i);
+    }
+
     public int getAge() {
         return age;
     }

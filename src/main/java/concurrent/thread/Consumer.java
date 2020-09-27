@@ -8,7 +8,7 @@ import java.util.concurrent.BlockingQueue;
 
 public class Consumer extends Thread {
 
-    private BlockingQueue<SqlObject> sqlObjectBlockingQueue;
+    private final BlockingQueue<SqlObject> sqlObjectBlockingQueue;
 
     Consumer(BlockingQueue<SqlObject> sqlObjectBlockingQueue) {
         this.sqlObjectBlockingQueue = sqlObjectBlockingQueue;

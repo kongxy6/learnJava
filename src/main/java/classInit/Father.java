@@ -1,7 +1,7 @@
 package classInit;
 
 class Father {
-    private static String s = print();
+    private static final String s = print();
 
     static {
         System.out.println("2.  父类静态代码块初始化");

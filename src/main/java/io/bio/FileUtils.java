@@ -2,7 +2,7 @@ package io.bio;
 
 /* 之后改为common io的直接使用*/
 
-import com.sun.istack.internal.NotNull;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.*;
 import java.util.ArrayList;

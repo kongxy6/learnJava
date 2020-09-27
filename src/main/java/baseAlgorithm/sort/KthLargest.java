@@ -4,7 +4,7 @@ package baseAlgorithm.sort;
  * 不够平衡，会导致失控。
  */
 public class KthLargest {
-    private int goal;
+    private final int goal;
 
     private TreeNode root = null;
 

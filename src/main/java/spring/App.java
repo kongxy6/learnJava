@@ -17,7 +17,8 @@ public class App {
         ctx = new ClassPathXmlApplicationContext("spring/beans.xml");
         System.out.println("容器初始化成功");
 
-        System.out.println(((Person) ctx.getBean("person")).getMan().toString());
+        System.out.println(((Person) ctx.getBean("person2")).c_arg);
+        System.out.println(((Person) ctx.getBean("person2")).getMan().toString());
 
         System.out.println("现在开始关闭容器！");
         ((ClassPathXmlApplicationContext) ctx).registerShutdownHook();

@@ -2,7 +2,7 @@ package designPattern.decoration.cafe;
 
 public class MilkDecorator2 implements Cafe {
 
-    private Cafe cafe;
+    private final Cafe cafe;
 
     public MilkDecorator2(Cafe cafe) {
         this.cafe = cafe;

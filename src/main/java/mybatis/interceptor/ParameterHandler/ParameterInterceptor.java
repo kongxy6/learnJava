@@ -29,7 +29,7 @@ public class ParameterInterceptor implements Interceptor {
         metaStatementHandler = SystemMetaObject.forObject(metaStatementHandler.getValue("parameterObject"));
         Object paramObject = metaStatementHandler.getOriginalObject();
         if (!(paramObject instanceof Blog)) {
-            paramObject = (MapperMethod.ParamMap) paramObject;
+            paramObject = paramObject;
         }
         System.out.println("paramMap: " + paramObject);
         return invocation.proceed();

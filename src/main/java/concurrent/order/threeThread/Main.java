@@ -10,7 +10,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 class Main {
 
-    private static Logger log = Logger.getLogger(Main.class);
+    private static final Logger log = Logger.getLogger(Main.class);
 
     @Test
     void main() {

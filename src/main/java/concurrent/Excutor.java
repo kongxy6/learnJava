@@ -44,11 +44,11 @@ public class Excutor {
     private final AtomicInteger ctl = new AtomicInteger(ctlOf(RUNNING, 0));
     SqlObject sqlObject = new SqlObject();
 
-    private Callable<String> task = () -> {
+    private final Callable<String> task = () -> {
         Thread.sleep(1000);
         return "success";
     };
-    private Runnable runnable = () -> {
+    private final Runnable runnable = () -> {
         System.out.println("hell0~");
         sqlObject.setField("ddd");
     };

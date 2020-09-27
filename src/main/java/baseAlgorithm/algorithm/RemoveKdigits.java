@@ -29,11 +29,11 @@ class RemoveKdigits {
             }
             // 移除a, i-1;
             --i;
-            num = num.substring(0, i) + num.substring(i + 1, num.length());
+            num = num.substring(0, i) + num.substring(i + 1);
             System.out.println(num);
             // 移除开头的0
             while (num.startsWith("0")) {
-                num = num.substring(1, num.length());
+                num = num.substring(1);
             }
             --k;
             if (k == 0) {

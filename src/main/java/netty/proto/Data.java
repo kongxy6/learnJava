@@ -113,7 +113,7 @@ public final class Data {
          */
         Data.MessageOrBuilder getMessageOrBuilder();
 
-        public Data.ProtocolMessage.BodyCase getBodyCase();
+        Data.ProtocolMessage.BodyCase getBodyCase();
     }
 
     public interface MessageOrBuilder extends
@@ -178,7 +178,6 @@ public final class Data {
         private Object body_;
         private int type_;
 
-        ;
         private byte memoizedIsInitialized = -1;
 
         // Use ProtocolMessage.newBuilder() to construct.
@@ -577,7 +576,7 @@ public final class Data {
             private static final Type[] VALUES = values();
             private final int value;
 
-            private Type(int value) {
+            Type(int value) {
                 this.value = value;
             }
 
@@ -650,7 +649,7 @@ public final class Data {
             BODY_NOT_SET(0);
             private final int value;
 
-            private BodyCase(int value) {
+            BodyCase(int value) {
                 this.value = value;
             }
 
@@ -773,35 +772,35 @@ public final class Data {
             }
 
             public Builder clone() {
-                return (Builder) super.clone();
+                return super.clone();
             }
 
             public Builder setField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
                     Object value) {
-                return (Builder) super.setField(field, value);
+                return super.setField(field, value);
             }
 
             public Builder clearField(
                     com.google.protobuf.Descriptors.FieldDescriptor field) {
-                return (Builder) super.clearField(field);
+                return super.clearField(field);
             }
 
             public Builder clearOneof(
                     com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-                return (Builder) super.clearOneof(oneof);
+                return super.clearOneof(oneof);
             }
 
             public Builder setRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
                     int index, Object value) {
-                return (Builder) super.setRepeatedField(field, index, value);
+                return super.setRepeatedField(field, index, value);
             }
 
             public Builder addRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
                     Object value) {
-                return (Builder) super.addRepeatedField(field, value);
+                return super.addRepeatedField(field, value);
             }
 
             public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -937,21 +936,6 @@ public final class Data {
             /**
              * <code>optional .Beat beat = 2;</code>
              */
-            public Builder setBeat(
-                    Data.Beat.Builder builderForValue) {
-                if (beatBuilder_ == null) {
-                    body_ = builderForValue.build();
-                    onChanged();
-                } else {
-                    beatBuilder_.setMessage(builderForValue.build());
-                }
-                bodyCase_ = 2;
-                return this;
-            }
-
-            /**
-             * <code>optional .Beat beat = 2;</code>
-             */
             public Builder setBeat(Data.Beat value) {
                 if (beatBuilder_ == null) {
                     if (value == null) {
@@ -961,6 +945,21 @@ public final class Data {
                     onChanged();
                 } else {
                     beatBuilder_.setMessage(value);
+                }
+                bodyCase_ = 2;
+                return this;
+            }
+
+            /**
+             * <code>optional .Beat beat = 2;</code>
+             */
+            public Builder setBeat(
+                    Data.Beat.Builder builderForValue) {
+                if (beatBuilder_ == null) {
+                    body_ = builderForValue.build();
+                    onChanged();
+                } else {
+                    beatBuilder_.setMessage(builderForValue.build());
                 }
                 bodyCase_ = 2;
                 return this;
@@ -1049,7 +1048,6 @@ public final class Data {
                 }
                 bodyCase_ = 2;
                 onChanged();
-                ;
                 return beatBuilder_;
             }
 
@@ -1073,21 +1071,6 @@ public final class Data {
             /**
              * <code>optional .Message message = 3;</code>
              */
-            public Builder setMessage(
-                    Data.Message.Builder builderForValue) {
-                if (messageBuilder_ == null) {
-                    body_ = builderForValue.build();
-                    onChanged();
-                } else {
-                    messageBuilder_.setMessage(builderForValue.build());
-                }
-                bodyCase_ = 3;
-                return this;
-            }
-
-            /**
-             * <code>optional .Message message = 3;</code>
-             */
             public Builder setMessage(Data.Message value) {
                 if (messageBuilder_ == null) {
                     if (value == null) {
@@ -1097,6 +1080,21 @@ public final class Data {
                     onChanged();
                 } else {
                     messageBuilder_.setMessage(value);
+                }
+                bodyCase_ = 3;
+                return this;
+            }
+
+            /**
+             * <code>optional .Message message = 3;</code>
+             */
+            public Builder setMessage(
+                    Data.Message.Builder builderForValue) {
+                if (messageBuilder_ == null) {
+                    body_ = builderForValue.build();
+                    onChanged();
+                } else {
+                    messageBuilder_.setMessage(builderForValue.build());
                 }
                 bodyCase_ = 3;
                 return this;
@@ -1185,7 +1183,6 @@ public final class Data {
                 }
                 bodyCase_ = 3;
                 onChanged();
-                ;
                 return messageBuilder_;
             }
 
@@ -1598,35 +1595,35 @@ public final class Data {
             }
 
             public Builder clone() {
-                return (Builder) super.clone();
+                return super.clone();
             }
 
             public Builder setField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
                     Object value) {
-                return (Builder) super.setField(field, value);
+                return super.setField(field, value);
             }
 
             public Builder clearField(
                     com.google.protobuf.Descriptors.FieldDescriptor field) {
-                return (Builder) super.clearField(field);
+                return super.clearField(field);
             }
 
             public Builder clearOneof(
                     com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-                return (Builder) super.clearOneof(oneof);
+                return super.clearOneof(oneof);
             }
 
             public Builder setRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
                     int index, Object value) {
-                return (Builder) super.setRepeatedField(field, index, value);
+                return super.setRepeatedField(field, index, value);
             }
 
             public Builder addRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
                     Object value) {
-                return (Builder) super.addRepeatedField(field, value);
+                return super.addRepeatedField(field, value);
             }
 
             public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -2125,35 +2122,35 @@ public final class Data {
             }
 
             public Builder clone() {
-                return (Builder) super.clone();
+                return super.clone();
             }
 
             public Builder setField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
                     Object value) {
-                return (Builder) super.setField(field, value);
+                return super.setField(field, value);
             }
 
             public Builder clearField(
                     com.google.protobuf.Descriptors.FieldDescriptor field) {
-                return (Builder) super.clearField(field);
+                return super.clearField(field);
             }
 
             public Builder clearOneof(
                     com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-                return (Builder) super.clearOneof(oneof);
+                return super.clearOneof(oneof);
             }
 
             public Builder setRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
                     int index, Object value) {
-                return (Builder) super.setRepeatedField(field, index, value);
+                return super.setRepeatedField(field, index, value);
             }
 
             public Builder addRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
                     Object value) {
-                return (Builder) super.addRepeatedField(field, value);
+                return super.addRepeatedField(field, value);
             }
 
             public Builder mergeFrom(com.google.protobuf.Message other) {

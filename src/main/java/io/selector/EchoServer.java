@@ -9,6 +9,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.*;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
+import java.nio.charset.StandardCharsets;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -32,9 +33,9 @@ public class EchoServer {
     Lock lock = new ReentrantLock();
     @GuardedBy("lock")
     Set<SocketChannel> selectionKeySet = new HashSet<>();
-    Charset latin1 = Charset.forName("UTF-8");
+    Charset latin1 = StandardCharsets.UTF_8;
     CharsetDecoder decoder = latin1.newDecoder();
-    private ByteBuffer buffer = ByteBuffer.allocateDirect(1024);
+    private final ByteBuffer buffer = ByteBuffer.allocateDirect(1024);
 
     public static void main(String[] argv) throws Exception {
         new EchoServer().go(argv);
@@ -177,7 +178,7 @@ public class EchoServer {
 
         private final AtomicInteger threadNumber = new AtomicInteger(1);
 
-        private String namePrefix = "echoThreadPool-concurrent.thread-";
+        private final String namePrefix = "echoThreadPool-concurrent.thread-";
 
         @Override
         public Thread newThread(Runnable r) {

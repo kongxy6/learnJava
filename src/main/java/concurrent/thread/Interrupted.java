@@ -13,7 +13,7 @@ public class Interrupted {
     public static void main(String... args) {
         thread.start();
         thread.interrupt();
-        System.out.println(thread.interrupted());
+        System.out.println(Thread.interrupted());
     }
 
 }

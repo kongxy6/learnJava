@@ -15,7 +15,7 @@ import java.text.SimpleDateFormat;
 
 public class TestCase {
 
-    private static String resource = "mybatis/mybatis-config.xml";
+    private static final String resource = "mybatis/mybatis-config.xml";
     private static InputStream inputStream;
     private static SqlSessionFactory sqlSessionFactory;
 

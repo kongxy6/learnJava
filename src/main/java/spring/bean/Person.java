@@ -5,6 +5,7 @@ import org.springframework.beans.factory.*;
 
 public class Person implements BeanFactoryAware, BeanNameAware, InitializingBean, DisposableBean {
 
+    public int c_arg;
     private String name;
     private String address;
     private int phone;
@@ -12,7 +13,8 @@ public class Person implements BeanFactoryAware, BeanNameAware, InitializingBean
     private BeanFactory beanFactory;
     private String beanName;
 
-    public Person() {
+    public Person(int c_arg) {
+        this.c_arg = c_arg;
         System.out.println("【构造器】调用Person的构造器实例化【此时是没有注入属性的】，而对于合并的bean定义仍然可以再注入属性之前进行post-process");
     }
 
@@ -21,6 +23,7 @@ public class Person implements BeanFactoryAware, BeanNameAware, InitializingBean
     }
 
     public void setMan(Man man) {
+        System.out.println("【注入属性】注入属性man");
         this.man = man;
     }
 
@@ -29,6 +32,7 @@ public class Person implements BeanFactoryAware, BeanNameAware, InitializingBean
     }
 
     // 这是BeanFactoryAware接口方法
+    @Override
     public void setBeanFactory(BeanFactory arg) throws BeansException {
         System.out.println("【BeanFactoryAware接口】调用BeanFactoryAware.setBeanFactory()");
         this.beanFactory = arg;
@@ -39,6 +43,7 @@ public class Person implements BeanFactoryAware, BeanNameAware, InitializingBean
     }
 
     // 这是BeanNameAware接口方法
+    @Override
     public void setBeanName(String arg) {
         System.out.println("【BeanNameAware接口】调用BeanNameAware.setBeanName()");
         this.beanName = arg;
@@ -77,12 +82,14 @@ public class Person implements BeanFactoryAware, BeanNameAware, InitializingBean
     }
 
     // 这是InitializingBean接口方法
+    @Override
     public void afterPropertiesSet() throws Exception {
         this.phone = 0;
         System.out.println("【InitializingBean接口】调用afterPropertiesSet()");
     }
 
     // 这是DiposibleBean接口方法
+    @Override
     public void destroy() throws Exception {
         System.out.println("【DiposibleBean接口】调用destory()");
     }

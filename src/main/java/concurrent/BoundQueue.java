@@ -8,7 +8,7 @@ public class BoundQueue {
 
     Semaphore semaphore = new Semaphore(5);
 
-    private Queue<String> queue = new LinkedList<>();
+    private final Queue<String> queue = new LinkedList<>();
 
     public String remove() {
         String s;

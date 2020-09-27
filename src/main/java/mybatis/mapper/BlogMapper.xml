@@ -51,7 +51,7 @@
         select *
         from Blog
         where last_update_time = #{time,jdbcType=VARCHAR}
-          and title = #{title}
+        and title = #{title}
     </select>
 
     <insert id="insertBlog" parameterType="blog">
