@@ -42,12 +42,11 @@ public class Excutor {
      */
     private static final int TERMINATED = 3 << COUNT_BITS;
     private final AtomicInteger ctl = new AtomicInteger(ctlOf(RUNNING, 0));
-    SqlObject sqlObject = new SqlObject();
-
     private final Callable<String> task = () -> {
         Thread.sleep(1000);
         return "success";
     };
+    SqlObject sqlObject = new SqlObject();
     private final Runnable runnable = () -> {
         System.out.println("hell0~");
         sqlObject.setField("ddd");

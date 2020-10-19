@@ -2,7 +2,6 @@ package mybatis.interceptor.ParameterHandler;
 
 
 import mybatis.model.Blog;
-import org.apache.ibatis.binding.MapperMethod;
 import org.apache.ibatis.executor.parameter.ParameterHandler;
 import org.apache.ibatis.plugin.*;
 import org.apache.ibatis.reflection.MetaObject;

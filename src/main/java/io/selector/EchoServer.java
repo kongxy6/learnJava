@@ -22,6 +22,7 @@ import java.util.concurrent.locks.ReentrantLock;
 public class EchoServer {
 
     public static int PORT_NUMBER = 9999;
+    private final ByteBuffer buffer = ByteBuffer.allocateDirect(1024);
     TimeUnit unit = TimeUnit.SECONDS;
     BlockingQueue workQueue = new ArrayBlockingQueue(250);
     /**
@@ -35,7 +36,6 @@ public class EchoServer {
     Set<SocketChannel> selectionKeySet = new HashSet<>();
     Charset latin1 = StandardCharsets.UTF_8;
     CharsetDecoder decoder = latin1.newDecoder();
-    private final ByteBuffer buffer = ByteBuffer.allocateDirect(1024);
 
     public static void main(String[] argv) throws Exception {
         new EchoServer().go(argv);

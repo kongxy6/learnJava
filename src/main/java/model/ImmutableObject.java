@@ -5,10 +5,10 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ImmutableObject {
 
+    private final int id;
     public StringBuilder builder;
     public StringBuffer buffer;
     String desc;
-    private final int id;
 
     public ImmutableObject(int id) {
         this.id = id;

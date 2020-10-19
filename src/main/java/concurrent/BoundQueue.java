@@ -6,9 +6,8 @@ import java.util.concurrent.Semaphore;
 
 public class BoundQueue {
 
-    Semaphore semaphore = new Semaphore(5);
-
     private final Queue<String> queue = new LinkedList<>();
+    Semaphore semaphore = new Semaphore(5);
 
     public String remove() {
         String s;
